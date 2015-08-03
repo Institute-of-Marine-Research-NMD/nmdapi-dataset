@@ -76,9 +76,9 @@ public class NMDDatasetDaoImpl implements NMDDatasetDao {
         if (!dir.exists()) {
             throw new NotFoundException("Could not find directory: " + dir.getAbsolutePath());
         }
-        for (String dirIt : dir.list()) {
-            if (new File(dirIt).isDirectory()) {
-                res.add(dirIt);
+        for (File dirIt : dir.listFiles()) {
+            if (dirIt.isDirectory()) {
+                res.add(dirIt.getName());
             }
         }
         return res;
