@@ -1,6 +1,10 @@
 package no.imr.nmdapi.nmddataset.dao;
 
 import java.io.File;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import no.imr.nmd.commons.dataset.jaxb.DatasetsType;
 import no.imr.nmdapi.exceptions.NotFoundException;
 import org.apache.commons.configuration.Configuration;
@@ -60,6 +64,24 @@ public class NMDDatasetDaoImpl implements NMDDatasetDao {
      */
     private File getFile(final String missiontype, final String year, final String platform, final String delivery, final String predir) {
         return new File(predir + System.getProperty("file.separator") + missiontype + System.getProperty("file.separator") + year + System.getProperty("file.separator") + platform + System.getProperty("file.separator") + delivery + System.getProperty("file.separator") + FILENAME);
+    }
+
+    @Override
+    public List<String> getDirs(String... pathvars) {
+        List<String> res = new ArrayList<String>();
+        File dir = new File(configuration.getString("pre.data.dir"));
+        for (String var : pathvars) {
+            dir = new File(dir.getAbsolutePath() + System.getProperty("file.separator") + var);
+        }
+        if (!dir.exists()) {
+            throw new NotFoundException("Could not find directory: " + dir.getAbsolutePath());
+        }
+        for (String dirIt : dir.list()) {
+            if (new File(dirIt).isDirectory()) {
+                res.add(dirIt);
+            }
+        }
+        return res;
     }
 
 

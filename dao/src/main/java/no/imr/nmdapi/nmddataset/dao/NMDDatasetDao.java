@@ -1,5 +1,7 @@
 package no.imr.nmdapi.nmddataset.dao;
 
+import java.util.List;
+import java.util.Map;
 import no.imr.nmd.commons.dataset.jaxb.DatasetsType;
 
 /**
@@ -30,5 +32,12 @@ public interface NMDDatasetDao {
      * @return  True if data exists.
      */
     boolean hasData(String missiontype, String year, String platform, String delivery);
+
+    /**
+     *
+     * @param pathVariables
+     * @return
+     */
+    List<String> getDirs(String... pathvars);
 
 }

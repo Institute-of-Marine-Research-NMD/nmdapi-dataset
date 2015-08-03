@@ -1,8 +1,9 @@
 package no.imr.nmdapi.nmddataset.controller;
 
+import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import no.imr.framework.logging.slf4j.aspects.stereotype.PerformanceLogging;
-import no.imr.nmd.commons.dataset.jaxb.DatasetsType;
+import no.imr.nmdapi.generic.response.v1.ListElementType;
 import no.imr.nmdapi.nmddataset.service.NMDDatasetService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -78,5 +78,42 @@ public class DatasetController {
              httpServletResponse.setStatus(HttpServletResponse.SC_NOT_FOUND);
          }
     }
+
+    @PerformanceLogging
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public ListElementType getList() {
+        LOGGER.info("Start DatasetController.getList");
+        return nmdDatasetService.getList();
+    }
+
+    @PerformanceLogging
+    @RequestMapping(value = "/{missiontype}", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public ListElementType getList(@PathVariable(value = "missiontype") String missiontype) {
+        LOGGER.info("Start DatasetController.getList");
+        return nmdDatasetService.getList(missiontype);
+    }
+
+    @PerformanceLogging
+    @RequestMapping(value = "/{missiontype}/{year}", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public ListElementType getList(@PathVariable(value = "missiontype") String missiontype, @PathVariable(value = "year") String year) {
+        LOGGER.info("Start DatasetController.getList");
+        return nmdDatasetService.getList(missiontype, year);
+    }
+
+    @PerformanceLogging
+    @RequestMapping(value = "/{missiontype}/{year}/{platform}", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public ListElementType getList(@PathVariable(value = "missiontype") String missiontype, @PathVariable(value = "year") String year, @PathVariable(value = "platform") String platform) {
+        LOGGER.info("Start DatasetController.getList");
+        return nmdDatasetService.getList(missiontype, year, platform);
+    }
+
 
 }

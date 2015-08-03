@@ -1,5 +1,8 @@
 package no.imr.nmdapi.nmddataset.service;
 
+import java.util.Map;
+import no.imr.nmdapi.generic.response.v1.ListElementType;
+
 /**
  * This service API only support queries.
  *
@@ -28,5 +31,13 @@ public interface NMDDatasetService {
      * @return      True if data exists.
      */
     boolean hasData(String missiontype, String year, String platform, String delivery);
+
+    /**
+     * Get discovery.
+     *
+     * @param pathVariables
+     * @return
+     */
+    ListElementType getList(String... pathvars);
 
 }
