@@ -3,7 +3,7 @@ package no.imr.nmdapi.nmddataset.config;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import java.util.List;
 import javax.xml.bind.JAXBException;
-import no.imr.nmdapi.common.converters.JAXBHttpMessageConverter;
+import no.imr.nmdapi.common.jaxb.converters.JAXBHttpMessageConverter;
 import no.imr.nmdapi.nmddataset.converters.mapper.DatasetNamespacePrefixMapper;
 import no.imr.nmdapi.nmddataset.jaxb.ResponseNamespacePrefixMapper;
 import org.slf4j.Logger;

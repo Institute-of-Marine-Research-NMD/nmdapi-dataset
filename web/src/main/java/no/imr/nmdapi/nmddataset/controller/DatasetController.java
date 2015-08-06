@@ -1,6 +1,5 @@
 package no.imr.nmdapi.nmddataset.controller;
 
-import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import no.imr.framework.logging.slf4j.aspects.stereotype.PerformanceLogging;
 import no.imr.nmdapi.generic.response.v1.ListElementType;
