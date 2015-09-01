@@ -20,8 +20,7 @@
     <context:component-scan base-package="no.imr.nmdapi.nmddataset.service.config" />
 
     <!-- S2D dao layers -->
-    <context:component-scan base-package="no.imr.nmdapi.nmddataset.dao.config" />
-    <context:component-scan base-package="no.imr.nmdapi.common.dao.config" />
+    <context:component-scan base-package="no.imr.nmdapi.dao.file.config" />
     <!-- Error handling advice -->
     <context:component-scan base-package="no.imr.nmdapi.common.advice" />
 
