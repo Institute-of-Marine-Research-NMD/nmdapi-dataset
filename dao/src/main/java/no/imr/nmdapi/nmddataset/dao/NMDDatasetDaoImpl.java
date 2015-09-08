@@ -1,10 +1,8 @@
 package no.imr.nmdapi.nmddataset.dao;
 
 import java.io.File;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import no.imr.nmd.commons.dataset.jaxb.DatasetsType;
 import no.imr.nmdapi.exceptions.NotFoundException;
 import org.apache.commons.configuration.Configuration;
