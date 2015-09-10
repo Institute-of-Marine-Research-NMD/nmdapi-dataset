@@ -1,6 +1,7 @@
 package no.imr.nmdapi.nmddataset.service;
 
-import java.util.Map;
+import no.imr.nmd.commons.dataset.jaxb.DatasetType;
+import no.imr.nmd.commons.dataset.jaxb.DatasetsType;
 import no.imr.nmdapi.generic.response.v1.ListElementType;
 
 /**
@@ -35,9 +36,18 @@ public interface NMDDatasetService {
     /**
      * Get discovery.
      *
-     * @param pathVariables
+     * @param pathvars
      * @return
      */
     ListElementType getList(String... pathvars);
+
+    /**
+     *
+     * @param missiontype
+     * @param year
+     * @param platform
+     * @param delivery
+     */
+    void updateDataset(String missiontype, String year, String platform, String delivery, DatasetType dataset);
 
 }
