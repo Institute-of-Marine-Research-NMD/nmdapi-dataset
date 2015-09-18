@@ -1,7 +1,6 @@
 package no.imr.nmdapi.nmddataset.service;
 
 import no.imr.nmd.commons.dataset.jaxb.DatasetType;
-import no.imr.nmd.commons.dataset.jaxb.DatasetsType;
 import no.imr.nmdapi.generic.response.v1.ListElementType;
 
 /**

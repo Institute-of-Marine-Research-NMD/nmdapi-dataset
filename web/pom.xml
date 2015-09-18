@@ -75,14 +75,14 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
         </dependency>
-               <dependency>
+        <dependency>
             <groupId>no.imr.framework.logging.slf4j</groupId>
             <artifactId>logging-framework</artifactId>
         </dependency>
         <dependency>
-    <groupId>no.imr.nmd.commons.jaxb</groupId>
-    <artifactId>commons-jaxb</artifactId>
-    <version>0.0.1</version>
+            <groupId>no.imr.nmd.commons.jaxb</groupId>
+            <artifactId>commons-jaxb</artifactId>
+            <version>0.0.7</version>
         </dependency>
         <dependency>
             <groupId>no.imr.nmd.commons.security</groupId>

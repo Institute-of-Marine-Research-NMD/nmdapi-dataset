@@ -66,7 +66,6 @@ public class DatasetController {
      * @param year
      * @param platform
      * @param delivery
-     * @return  Response object.
      */
     @PerformanceLogging
     @RequestMapping(value = "/{missiontype}/{year}/{platform}/{delivery}", method = RequestMethod.PUT)
@@ -133,6 +132,5 @@ public class DatasetController {
         LOGGER.info("Start DatasetController.getList");
         return nmdDatasetService.getList(missiontype, year, platform);
     }
-
 
 }
