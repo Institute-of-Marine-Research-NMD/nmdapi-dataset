@@ -1,6 +1,7 @@
 package no.imr.nmdapi.nmddataset.config;
 
 import com.fasterxml.jackson.databind.SerializationFeature;
+import java.net.URL;
 import java.util.List;
 import javax.xml.bind.JAXBException;
 import no.imr.nmdapi.common.jaxb.converters.JAXBHttpMessageConverter;
@@ -85,7 +86,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     public HttpMessageConverter getDatasetMappingJaxBHttpMessageConverter() {
         JAXBHttpMessageConverter converter = null;
         try {
-            converter = new JAXBHttpMessageConverter(new DatasetNamespacePrefixMapper(),false,
+            URL schemaFile = Thread.currentThread().getContextClassLoader().getResource("dataset.xsd");
+            converter = new JAXBHttpMessageConverter(new DatasetNamespacePrefixMapper(),false, schemaFile,
                     "no.imr.nmd.commons.dataset.jaxb");
         } catch (JAXBException ex) {
             LOGGER.error("Error creating message converter.", ex);
