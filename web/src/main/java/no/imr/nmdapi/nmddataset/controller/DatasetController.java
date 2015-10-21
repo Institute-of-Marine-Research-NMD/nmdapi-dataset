@@ -1,6 +1,7 @@
 package no.imr.nmdapi.nmddataset.controller;
 
 import javax.servlet.http.HttpServletResponse;
+import no.imr.framework.logging.slf4j.aspects.stereotype.ArgumentLogging;
 import no.imr.framework.logging.slf4j.aspects.stereotype.PerformanceLogging;
 import no.imr.nmd.commons.dataset.jaxb.DatasetType;
 import no.imr.nmdapi.generic.response.v1.ListElementType;
@@ -51,6 +52,7 @@ public class DatasetController {
      * @return  Response object.
      */
     @PerformanceLogging
+    @ArgumentLogging
     @RequestMapping(value = "/{missiontype}/{year}/{platform}/{delivery}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -68,6 +70,7 @@ public class DatasetController {
      * @param delivery
      */
     @PerformanceLogging
+    @ArgumentLogging
     @RequestMapping(value = "/{missiontype}/{year}/{platform}/{delivery}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -86,6 +89,7 @@ public class DatasetController {
      * @return
      */
     @PerformanceLogging
+    @ArgumentLogging
     @RequestMapping(value = "/{missiontype}/{year}/{platform}/{delivery}", method = RequestMethod.HEAD)
     public void  hasData(HttpServletResponse httpServletResponse,@PathVariable(value = "missiontype") String missiontype, @PathVariable(value = "year") String year, @PathVariable(value = "platform") String platform, @PathVariable(value = "delivery") String delivery) {
         LOGGER.info("Start DatasetController.hasData");
@@ -98,6 +102,7 @@ public class DatasetController {
     }
 
     @PerformanceLogging
+    @ArgumentLogging
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -107,6 +112,7 @@ public class DatasetController {
     }
 
     @PerformanceLogging
+    @ArgumentLogging
     @RequestMapping(value = "/{missiontype}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -116,6 +122,7 @@ public class DatasetController {
     }
 
     @PerformanceLogging
+    @ArgumentLogging
     @RequestMapping(value = "/{missiontype}/{year}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -125,6 +132,7 @@ public class DatasetController {
     }
 
     @PerformanceLogging
+    @ArgumentLogging
     @RequestMapping(value = "/{missiontype}/{year}/{platform}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
